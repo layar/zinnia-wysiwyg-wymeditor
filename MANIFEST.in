@@ -3,5 +3,6 @@ include LICENSE
 include versions.cfg
 include buildout.cfg
 include bootstrap.py
-recursive-include demo_zinnia_wymeditor *
-exclude demo_zinnia_wymeditor/demo.db*
+recursive-include demo_zinnia_wymeditor *.py
+recursive-include zinnia_wymeditor/static *
+recursive-include zinnia_wymeditor/templates *.txt *.html *.xml *.js
