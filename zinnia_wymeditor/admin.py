@@ -28,9 +28,9 @@ class EntryAdminWYMEditorMixin(object):
 
     def get_urls(self):
         """
-        Overload the admin's urls for WYMEDitor.
+        Overload the admin's urls for WYMEditor.
         """
-        entry_admin_urls = super(EntryAdminWYMEditor, self).get_urls()
+        entry_admin_urls = super(EntryAdminWYMEditorMixin, self).get_urls()
         urls = patterns(
             '',
             url(r'^wymeditor/$',
@@ -46,7 +46,7 @@ class EntryAdminWYMEditorMixin(object):
         def static_url(url):
             return staticfiles_storage.url('zinnia_wymeditor/%s' % url)
 
-        media = super(EntryAdminWYMEditor, self).media
+        media = super(EntryAdminWYMEditorMixin, self).media
 
         media += Media(
             js=(static_url('js/wymeditor/jquery.wymeditor.pack.js'),
