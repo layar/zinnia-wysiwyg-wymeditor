@@ -44,7 +44,11 @@ class EntryAdminWYMEditorMixin(object):
         The medias needed to enhance the admin page.
         """
         def static_url(url):
-            return staticfiles_storage.url('zinnia_wymeditor/%s' % url)
+            """
+            Reason for fork: Prevent cross-origin JS security error by 
+            loading files from same origin instead of CDN.
+            """
+            return '/static/zinnia_wymeditor/%s' % url)
 
         media = super(EntryAdminWYMEditorMixin, self).media
 
