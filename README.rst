@@ -1,3 +1,5 @@
+Forked because of https://github.com/layar/zinnia-wysiwyg-wymeditor/commit/253c95a1e80c624f71ad93d57d1695423ca9c407
+
 ========================
 zinnia-wysiwyg-wymeditor
 ========================
