@@ -48,7 +48,7 @@ class EntryAdminWYMEditorMixin(object):
             Reason for fork: Prevent cross-origin JS security error by 
             loading files from same origin instead of CDN.
             """
-            return '/static/zinnia_wymeditor/%s' % url)
+            return '/static/zinnia_wymeditor/%s' % url
 
         media = super(EntryAdminWYMEditorMixin, self).media
 
