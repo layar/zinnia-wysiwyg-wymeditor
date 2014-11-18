@@ -10,6 +10,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 
 from zinnia.models import Entry
 from zinnia.admin.entry import EntryAdmin
+from zinnia.settings import ENTRY_BASE_MODEL
 
 
 class EntryAdminWYMEditorMixin(object):
@@ -64,5 +65,7 @@ class EntryAdminWYMEditor(EntryAdminWYMEditorMixin,
     """
     pass
 
-admin.site.unregister(Entry)
-admin.site.register(Entry, EntryAdminWYMEditor)
+
+if ENTRY_BASE_MODEL == 'zinnia.models_bases.entry.AbstractEntry':
+    admin.site.unregister(Entry)
+    admin.site.register(Entry, EntryAdminWYMEditor)
