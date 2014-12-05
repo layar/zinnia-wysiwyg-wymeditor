@@ -10,6 +10,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 
 from zinnia.models import Entry
 from zinnia.admin.entry import EntryAdmin
+from zinnia.settings import ENTRY_BASE_MODEL
 
 
 class EntryAdminWYMEditorMixin(object):
@@ -49,7 +50,8 @@ class EntryAdminWYMEditorMixin(object):
         media = super(EntryAdminWYMEditorMixin, self).media
 
         media += Media(
-            js=(static_url('js/wymeditor/jquery.wymeditor.pack.js'),
+            js=(static_url('js/jquery.min.js'),
+                static_url('js/wymeditor/jquery.wymeditor.pack.js'),
                 static_url('js/wymeditor/plugins/hovertools/'
                            'jquery.wymeditor.hovertools.js'),
                 reverse('admin:zinnia_entry_wymeditor')))
@@ -64,5 +66,7 @@ class EntryAdminWYMEditor(EntryAdminWYMEditorMixin,
     """
     pass
 
-admin.site.unregister(Entry)
-admin.site.register(Entry, EntryAdminWYMEditor)
+
+if ENTRY_BASE_MODEL == 'zinnia.models_bases.entry.AbstractEntry':
+    admin.site.unregister(Entry)
+    admin.site.register(Entry, EntryAdminWYMEditor)
