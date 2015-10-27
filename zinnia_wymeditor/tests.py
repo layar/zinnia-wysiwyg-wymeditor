@@ -28,6 +28,7 @@ class BaseAdminTestCase(TestCase):
 
 class EntryAdminWYMEditorTestCase(BaseAdminTestCase):
     """Test case for Entry Admin with WYMEditor"""
+    maxDiff = None
 
     def setUp(self):
         super(EntryAdminWYMEditorTestCase, self).setUp()
@@ -46,7 +47,7 @@ class EntryAdminWYMEditorTestCase(BaseAdminTestCase):
         medias = self.admin.media
         self.assertEqual(
             medias._css,
-            {'all': ['/static/zinnia/css/jquery.autocomplete.css']})
+            {})
         self.assertEqual(
             medias._js,
             ['/static/admin/js/core.js',
@@ -56,10 +57,7 @@ class EntryAdminWYMEditorTestCase(BaseAdminTestCase):
              '/static/admin/js/actions.min.js',
              '/static/admin/js/urlify.js',
              '/static/admin/js/prepopulate.min.js',
-             '/static/zinnia/js/jquery.js',
-             '/static/zinnia/js/jquery.bgiframe.js',
-             '/static/zinnia/js/jquery.autocomplete.js',
-             '/admin/zinnia/entry/autocomplete_tags/',
+             '/static/zinnia_wymeditor/js/jquery.min.js',
              '/static/zinnia_wymeditor/js/wymeditor/jquery.wymeditor.pack.js',
              '/static/zinnia_wymeditor/js/wymeditor/'
              'plugins/hovertools/jquery.wymeditor.hovertools.js',
